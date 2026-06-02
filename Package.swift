@@ -34,7 +34,7 @@ let package = Package(
                 
                 // 💡 3. ONNX Runtimeの正確なプロダクト名「onnxruntime-cxx」を指定し、
                 //       package名にはリポジトリ名「onnxruntime-swift-package-manager」を正確に指定します
-                .product(name: "onnxruntime-cxx", package: "onnxruntime-swift-package-manager")
+                .product(name: "onnxruntime", package: "onnxruntime")
             ],
             path: "Sources/MyCountRRTarget"
         ),
