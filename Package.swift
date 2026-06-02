@@ -30,7 +30,7 @@ let package = Package(
                 "MyCountRREngineBinary",
                 
                 // 💡 2. package: の文字列は、リポジトリURLの末尾（リポジトリ名）と完全に一致させます
-                .product(name: "MyOpenCV", package: "MyOpenCV"),
+                .product(name: "opencv2", package: "MyOpenCV"),
                 
                 // 💡 3. ONNX Runtimeの正確なプロダクト名「onnxruntime-cxx」を指定し、
                 //       package名にはリポジトリ名「onnxruntime-swift-package-manager」を正確に指定します
