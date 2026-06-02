@@ -15,6 +15,7 @@ let package = Package(
             exact: "4.13.0"
         ),
         .package(
+            name: "onnxruntime-swift-package-manager", // 💡 名前を明示的に固定
             url: "https://github.com/microsoft/onnxruntime-swift-package-manager",
             exact: "1.24.2"
         )
