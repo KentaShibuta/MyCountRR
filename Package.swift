@@ -13,14 +13,12 @@ let package = Package(
         ),
     ],
     dependencies: [
-        // 💡 パッケージ名を明示的に指定して、大文字・小文字のブレによるエラーを完全に防ぎます
+        // 💡 1. 予期せぬエラーを防ぐため、name: 指定を外し、最も標準的なURLのみの指定に戻します
         .package(
-            name: "MyOpenCV",
             url: "https://github.com/KentaShibuta/MyOpenCV",
             exact: "4.13.0"
         ),
         .package(
-            name: "onnxruntime-swift-package-manager",
             url: "https://github.com/microsoft/onnxruntime-swift-package-manager",
             exact: "1.24.2"
         )
@@ -29,14 +27,14 @@ let package = Package(
         .target(
             name: "MyCountRRTarget",
             dependencies: [
-                "MyCountRREngineBinary", // あなたの自作 xcframework
+                "MyCountRREngineBinary",
                 
-                // 💡 外部プロダクトとの紐付け
-                // package名には、上の「name:」で指定した文字列を寸分違わず一致させます
+                // 💡 2. package: の文字列は、リポジトリURLの末尾（リポジトリ名）と完全に一致させます
                 .product(name: "MyOpenCV", package: "MyOpenCV"),
                 
-                // 💡 microsoft公式の定義に合わせて、name（プロダクト名）を「onnxruntime」に修正します
-                .product(name: "onnxruntime", package: "onnxruntime-swift-package-manager")
+                // 💡 3. ONNX Runtimeの正確なプロダクト名「onnxruntime-cxx」を指定し、
+                //       package名にはリポジトリ名「onnxruntime-swift-package-manager」を正確に指定します
+                .product(name: "onnxruntime-cxx", package: "onnxruntime-swift-package-manager")
             ],
             path: "Sources/MyCountRRTarget"
         ),
