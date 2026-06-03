@@ -26,7 +26,7 @@ let package = Package(
         .target(
             name: "MyCountRRTarget",
             dependencies: [
-                "MyCountRREngineBinary",
+                "engine",
                 
                 // package: の文字列は、リポジトリURLの末尾（リポジトリ名）と完全に一致させます
                 .product(name: "opencv2", package: "MyOpenCV"),
@@ -35,7 +35,7 @@ let package = Package(
             path: "Sources/MyCountRRTarget"
         ),
         .binaryTarget(
-            name: "MyCountRREngineBinary",
+            name: "engine",
             url: "https://github.com/KentaShibuta/MyCountRR/releases/download/1.0.0/engine.xcframework.zip",
             checksum: "f93d19c5adada37480effd96adcc3296fa6205e9db487d40927ea26a9419c9df"
         ),
