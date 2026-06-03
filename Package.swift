@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "MyCountRR",
     platforms: [
-        .iOS(.v14), .macOS(.v11)
+        .iOS(.v15)
     ],
     products: [
         .library(
