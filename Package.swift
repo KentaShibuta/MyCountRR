@@ -13,7 +13,6 @@ let package = Package(
         ),
     ],
     dependencies: [
-        // 💡 1. 予期せぬエラーを防ぐため、name: 指定を外し、最も標準的なURLのみの指定に戻します
         .package(
             url: "https://github.com/KentaShibuta/MyOpenCV",
             exact: "4.13.0"
@@ -29,12 +28,9 @@ let package = Package(
             dependencies: [
                 "MyCountRREngineBinary",
                 
-                // 💡 2. package: の文字列は、リポジトリURLの末尾（リポジトリ名）と完全に一致させます
+                // package: の文字列は、リポジトリURLの末尾（リポジトリ名）と完全に一致させます
                 .product(name: "opencv2", package: "MyOpenCV"),
-                
-                // 💡 3. ONNX Runtimeの正確なプロダクト名「onnxruntime-cxx」を指定し、
-                //       package名にはリポジトリ名「onnxruntime-swift-package-manager」を正確に指定します
-                .product(name: "onnxruntime", package: "onnxruntime")
+                .product(name: "onnxruntime", package: "onnxruntime-swift-package-manager")
             ],
             path: "Sources/MyCountRRTarget"
         ),
