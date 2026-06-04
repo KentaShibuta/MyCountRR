@@ -32,7 +32,13 @@ let package = Package(
                 .product(name: "opencv2", package: "MyOpenCV"),
                 .product(name: "onnxruntime", package: "onnxruntime-swift-package-manager")
             ],
-            path: "Sources/MyCountRRTarget"
+            path: "Sources/MyCountRRTarget",
+            swiftSettings: [
+                .interoperabilityMode(.Cxx)
+            ],
+            linkerSettings: [
+                .linkedLibrary("c++")
+            ]
         ),
         .binaryTarget(
             name: "engine",
